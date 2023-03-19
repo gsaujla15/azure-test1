@@ -17,7 +17,7 @@ public class LoginDao {
 		ResultSet rs = null;
 
 		String dbName = "COMPOSITEAPPS?useSSL=true";
-//		String driver = "com.mysql.cj.jdbc.Driver";
+		String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 		String userName = "loyalist";
 		String password = "*TeamB1*";
 
@@ -27,7 +27,7 @@ public class LoginDao {
 		System.out.println(url);
 
 		try {
-//			Class.forName(driver).newInstance();
+			Class.forName(driver).newInstance();
 			conn = DriverManager.getConnection(url);
 			System.out.println(url + dbName + userName + password);
 
@@ -81,7 +81,7 @@ public class LoginDao {
 			try {
 
 				String dbName = "COMPOSITEAPPS?useSSL=true";
-//				String driver = "com.mysql.cj.jdbc.Driver";
+				String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
 				String userName = "loyalist";
 				String password = "*TeamB1*";
 
@@ -91,11 +91,13 @@ public class LoginDao {
 						+ "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 
 				System.out.println(url);
-//				Class.forName(driver);
+				Class.forName(driver);
 
 				connection = DriverManager.getConnection(url);
 
-			} catch (Exception e) {
+			} catch (ClassNotFoundException e) {
+				e.printStackTrace();
+			} catch (SQLException e) {
 				e.printStackTrace();
 			}
 			return connection;
