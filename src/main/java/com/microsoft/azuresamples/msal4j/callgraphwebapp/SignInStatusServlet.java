@@ -21,7 +21,7 @@ public class SignInStatusServlet extends HttpServlet {
 
     @Override
     protected void doGet(final HttpServletRequest req, final HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("bodyContent", "login.jsp");
+        req.setAttribute("bodyContent", "content/status.jsp");
         final RequestDispatcher view = req.getRequestDispatcher("index.jsp");
         view.forward(req, resp);
     }
