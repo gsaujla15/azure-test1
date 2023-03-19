@@ -104,10 +104,10 @@ public class LoginDao {
 		}
 	}
 
-	public static ArrayList<Employee> getAllEmployees() {
+	public static ArrayList<Patient> getAllPatients() {
 
 		connection = LoginDao.getConnection();
-		ArrayList<Employee> employeeList = new ArrayList<Employee>();
+		ArrayList<Patient> patientList = new ArrayList<Patient>();
 		Statement statement = null;
 		ResultSet rs = null;
 
@@ -116,14 +116,19 @@ public class LoginDao {
 			rs = statement.executeQuery("SELECT TOP 100 * FROM PATIENTS");
 
 			while (rs.next()) {
-				Employee empl = new Employee();
-				empl.setEmployeeID(rs.getInt("FILE_ID"));
-				empl.setName(rs.getString("NAME"));
-				empl.setPhone(rs.getString("PHONE_NUMBER"));
-				empl.setSupervisor(rs.getString("ASSIGNED_DOCTOR"));
-				empl.setUsername(rs.getString("USERNAME"));
-				empl.setPassword(rs.getString("PASSWORD"));
-				employeeList.add(empl);
+				Patient patient = new Patient();
+				patient.setFile_id(rs.getInt("FILE_ID"));
+				patient.setName(rs.getString("NAME"));
+				patient.setPhone(rs.getString("PHONE_NUMBER"));
+				patient.setAssigned_doctor(rs.getString("ASSIGNED_DOCTOR"));
+				patient.setBlood_group(rs.getString("BLOOD_GROUP"));;
+				patient.setUsername(rs.getString("USERNAME"));
+				patient.setPassword(rs.getString("PASSWORD"));
+				System.out.println(patient.getFile_id() + "::" + patient.getName() + "::" + patient.getPhone() + "::"
+						+ patient.getAssigned_doctor() + "::" + patient.getBlood_group() + "::" + patient.getUsername()
+						+ "::" + patient.getPassword());
+
+				patientList.add(patient);
 			}
 		}
 
@@ -150,7 +155,7 @@ public class LoginDao {
 
 		}
 
-		return employeeList;
+		return patientList;
 	}
 
 	public static void closeConnection() {
@@ -166,6 +171,7 @@ public class LoginDao {
 	public static void main(String args[]) {
 		LoginDao login = new LoginDao();
 		login.validate("driley0", "XBXA3XgR");
-		System.out.println(login.getAllEmployees());
+		login.getAllPatients();
+
 	}
 }

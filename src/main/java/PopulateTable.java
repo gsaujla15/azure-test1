@@ -25,14 +25,15 @@ public class PopulateTable extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
      
       System.out.println("DEBUG 1");
-      ArrayList<Employee> employees = new ArrayList<Employee>();
-      employees = LoginDao.getAllEmployees();
+      ArrayList<Patient> employees = new ArrayList<Patient>();
+      employees = LoginDao.getAllPatients();
       Gson gson = new Gson();
-      JsonElement element = gson.toJsonTree(employees, new TypeToken<List<Employee>>() {}.getType());
+      JsonElement element = gson.toJsonTree(employees, new TypeToken<List<Patient>>() {}.getType());
        
       JsonArray jsonArray = element.getAsJsonArray();
       response.setContentType("application/json");
       response.getWriter().print(jsonArray);
+      System.out.println(jsonArray);
       System.out.println("DEBUG 2");
  }
  

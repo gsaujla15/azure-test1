@@ -61,9 +61,10 @@
 		        <th scope="col">FILE_ID</th> 
 		        <th scope="col">NAME</th> 
 		        <th scope="col">PHONE_NUMBER</th> 
-		        <th scope="col">ASSIGNED_DOCTOR</th> 
+		        <th scope="col">ASSIGNED_DOCTOR</th> 		        
 		        <th scope="col">USERNAME</th> 
-		        <th scope="col">PASSWORD</th>          
+		        <th scope="col">PASSWORD</th>  
+		        <th scope="col">BLOOD_GROUP</th>         
 		    </tr> 
 		</table>
 		</div>
@@ -85,13 +86,14 @@
 		                $("#employeetable").find("tr:gt(0)").remove();
 		                var table1 = $("#employeetable");
 		                $.each(responseJson, function(key,value) { 
-		                     var rowNew = $("<tr><td></td><td></td><td></td><td></td><td></td><td></td></tr>");
-		                        rowNew.children().eq(0).text(value['id']); 
+		                     var rowNew = $("<tr><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>");
+		                        rowNew.children().eq(0).text(value['file_id']); 
 		                        rowNew.children().eq(1).text(value['name']); 
 		                        rowNew.children().eq(2).text(value['phone']); 
-		                        rowNew.children().eq(3).text(value['supervisor']); 
+		                        rowNew.children().eq(3).text(value['assigned_doctor']); 
 		                        rowNew.children().eq(4).text(value['username']); 
 		                        rowNew.children().eq(5).text(value['password']); 
+		                        rowNew.children().eq(6).text(value['blood_group']); 
 		                        rowNew.appendTo(table1);
 		                });
 		                }
