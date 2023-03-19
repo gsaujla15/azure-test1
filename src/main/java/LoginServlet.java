@@ -19,7 +19,7 @@ public class LoginServlet extends HttpServlet{
 
     protected void doGet(HttpServletRequest request,HttpServletResponse response)
     		throws ServletException, IOException {
-        		request.getRequestDispatcher("views/login.jsp").forward(request, response);
+        		request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
 
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet{
         }
         else{
             request.setAttribute("errorMessage", "Invalid Credentials!");
-            request.getRequestDispatcher("views/login.jsp").forward(
+            request.getRequestDispatcher("login.jsp").forward(
                     request, response);
         }
 
