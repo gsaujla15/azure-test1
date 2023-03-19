@@ -16,25 +16,28 @@ public class LoginDao {
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 
-		String url = "jdbc:mysql://loyalist-internship-demo-db.mysql.database.azure.com:3306/";
 		String dbName = "COMPOSITEAPPS?useSSL=true";
 		String driver = "com.mysql.cj.jdbc.Driver";
 		String userName = "loyalist";
 		String password = "*TeamB1*";
-		String urlFinal = url + dbName;
-		System.out.println(urlFinal);
+
+		String url = "jdbc:sqlserver://khupragenics.database.windows.net:1433;"
+				+ "database=khupragenics-db;user=loyalist@khupragenics;" + "password=" + password + ";encrypt=true;"
+				+ "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+		System.out.println(url);
 
 		try {
 			Class.forName(driver).newInstance();
-			conn = DriverManager.getConnection(url + dbName, userName, password);
+			conn = DriverManager.getConnection(url);
 			System.out.println(url + dbName + userName + password);
 
-			pst = conn.prepareStatement("SELECT * FROM EMPLOYEES WHERE USERNAME=? and PASSWORD=?");
+			pst = conn.prepareStatement("SELECT * FROM PATIENTS WHERE USERNAME=? and PASSWORD=?");
 			pst.setString(1, name);
 			pst.setString(2, pass);
 
 			rs = pst.executeQuery();
 			status = rs.next();
+			System.out.println(status);
 		}
 
 		catch (Exception e) {
@@ -77,16 +80,20 @@ public class LoginDao {
 		else {
 			try {
 
-				String url = "jdbc:mysql://loyalist-internship-demo-db.mysql.database.azure.com:3306/";
 				String dbName = "COMPOSITEAPPS?useSSL=true";
 				String driver = "com.mysql.cj.jdbc.Driver";
 				String userName = "loyalist";
 				String password = "*TeamB1*";
-				String urlFinal = url + dbName;
-				System.out.println(url + dbName + userName + password);
+
+				String url = "jdbc:sqlserver://khupragenics.database.windows.net:1433;"
+						+ "database=khupragenics-db;user=loyalist@khupragenics;" + "password=" + password
+						+ ";encrypt=true;"
+						+ "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
+
+				System.out.println(url);
 				Class.forName(driver);
 
-				connection = DriverManager.getConnection(urlFinal, userName, password);
+				connection = DriverManager.getConnection(url);
 
 			} catch (ClassNotFoundException e) {
 				e.printStackTrace();
@@ -106,14 +113,14 @@ public class LoginDao {
 
 		try {
 			statement = connection.createStatement();
-			rs = statement.executeQuery("SELECT * FROM EMPLOYEES LIMIT 100");
+			rs = statement.executeQuery("SELECT TOP 100 * FROM PATIENTS");
 
 			while (rs.next()) {
 				Employee empl = new Employee();
-				empl.setEmployeeID(rs.getInt("EMPLOYEE_ID"));
+				empl.setEmployeeID(rs.getInt("FILE_ID"));
 				empl.setName(rs.getString("NAME"));
 				empl.setPhone(rs.getString("PHONE_NUMBER"));
-				empl.setSupervisor(rs.getString("SUPERVISORS"));
+				empl.setSupervisor(rs.getString("ASSIGNED_DOCTOR"));
 				empl.setUsername(rs.getString("USERNAME"));
 				empl.setPassword(rs.getString("PASSWORD"));
 				employeeList.add(empl);
@@ -159,5 +166,6 @@ public class LoginDao {
 	public static void main(String args[]) {
 		LoginDao login = new LoginDao();
 		login.validate("driley0", "XBXA3XgR");
+		System.out.println(login.getAllEmployees());
 	}
 }

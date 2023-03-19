@@ -58,10 +58,10 @@
 		<div class="table-responsive" id="tablediv">
 		<table class="table" id="employeetable"> 
 		    <tr> 
-		        <th scope="col">EMPLOYEE_ID</th> 
+		        <th scope="col">FILE_ID</th> 
 		        <th scope="col">NAME</th> 
 		        <th scope="col">PHONE_NUMBER</th> 
-		        <th scope="col">SUPERVISORS</th> 
+		        <th scope="col">ASSIGNED_DOCTOR</th> 
 		        <th scope="col">USERNAME</th> 
 		        <th scope="col">PASSWORD</th>          
 		    </tr> 
