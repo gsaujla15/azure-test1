@@ -96,7 +96,7 @@ public class IdqLoginServlet extends HttpServlet{
 			}
 			
 		} catch(OAuthSystemException | OAuthProblemException | JSONException e) {
-			request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+			request.getRequestDispatcher("views/login.jsp").forward(request, response);
 		}
 	}
 
