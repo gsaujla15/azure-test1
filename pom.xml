@@ -31,13 +31,13 @@
 			<artifactId>jquery</artifactId>
 			<version>1.9.1</version>
 		</dependency>
-		<dependency>
+		<!--<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.32</version>
 			<type>jar</type>
 			<scope>compile</scope>
-		</dependency>
+		</dependency>-->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
