@@ -1,4 +1,4 @@
-Java Servlet Login and Display
+Java Servlet Login and Display.
 --------------------
 
 Most web apps start with system Login and data Display.
