@@ -30,7 +30,7 @@ public class LoginServlet extends HttpServlet{
         String p = request.getParameter("password");
 
 
-        if(LoginDao.validate(n, p)){
+        if(LoginDao.validateADUser(n, p)){
 
 //            RequestDispatcher rd = request.getRequestDispatcher("todo.jsp");
 //            rd.forward(request,response);
@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet{
         }
         else{
             request.setAttribute("errorMessage", "Invalid Credentials!");
-            request.getRequestDispatcher("login.jsp").forward(
+            request.getRequestDispatcher("content/401.jsp").forward(
                     request, response);
         }
 
