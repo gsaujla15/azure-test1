@@ -21,7 +21,7 @@ public class LoginDao {
 		String userName = "loyalist";
 		String password = "*TeamB1*";
 
-		String url = "jdbc:sqlserver://khupragenics.database.windows.net:1433;"
+		String url = "jdbc:sqlserver://10.0.2.15:1433;"
 				+ "database=khupragenics-db;user=loyalist@khupragenics;" + "password=" + password + ";encrypt=true;"
 				+ "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
 		System.out.println(url);
@@ -85,7 +85,7 @@ public class LoginDao {
 				String userName = "loyalist";
 				String password = "*TeamB1*";
 
-				String url = "jdbc:sqlserver://khupragenics.database.windows.net:1433;"
+				String url = "jdbc:sqlserver://10.0.2.15:1433;"
 						+ "database=khupragenics-db;user=loyalist@khupragenics;" + "password=" + password
 						+ ";encrypt=true;"
 						+ "trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
