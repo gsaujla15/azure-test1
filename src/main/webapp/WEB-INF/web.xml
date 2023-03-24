@@ -6,7 +6,7 @@
     <display-name>Login Demo</display-name>
 
     <welcome-file-list>
-        <welcome-file>index.do</welcome-file>
+        <welcome-file>login.do</welcome-file>
     </welcome-file-list>
 
 </web-app>
