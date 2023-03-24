@@ -11,6 +11,7 @@ A user can log in to this simple web application using username/password credent
 ![Screenshot](screenshot/display.png)
 
 
+
 Installation
 ------------
 + Create MySQL database through script 'createtable_composite.sql' inside 'database' folder.
